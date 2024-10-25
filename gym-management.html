@@ -1,70 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gym Member Management</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body cz-shortcut-listen="true">
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li>
-                        <a href="labs.html">Labs</a>
-                        <ul class="submenu2">
-                            <li><a href="lab1.html">Lab1</a></li>
-                            <li> <a href="lab2.html">Lab2</a></li>
-                            <li> <a href="lab3.html">Lab3</a></li>
-                        </ul>
-                    </li><li>
-                        <a href="#">Lab</a>
-                        <ul class="submenu">
-                            <li><a href="requirement.html">Requirement</a></li>
-                            <li><a href="design.html">Design</a></li>
-                            <li><a href="gym-management.html">Implement</a></li>
-                </ul>
-            </li></ul></nav>
-        </header>
-    
-        <main>
-            <h1>Gym Member Management</h1>
-    
-            <div class="form-container">
-                <h2>Add New Member</h2>
-                <input type="text" id="memberName" placeholder="Member Name">
-                <input type="text" id="memberEmail" placeholder="Email">
-                <input type="number" id="memberAge" placeholder="Age">
-                <button onclick="addMember()">Add Member</button>
-            </div>
-    
-            <div class="form-container">
-                <h2>Search Member</h2>
-                <input type="text" id="searchMember" placeholder="Search for a member" oninput="searchMember()">
-            </div>
-            
-            <h2>Member List</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Member Name</th>
-                        <th>Email</th>
-                        <th>Age</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody id="memberList">
-                </tbody>
-            </table>
-        </main>
-    
-        <footer>
-            <p>23130081 - Tran Quang Duy</p>
-        </footer>
-        <script src="script.js"></script>
-    
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gym Member Management</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    /* Main Heading */
+    main h1 {
+      text-align: center;
+      font-size: 2.5em;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    /* Form Container */
+    .form-container {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .form-container h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    .form-container button:hover {
+      background-color: #218838;
+    }
+
+    /* Member List Table */
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table th,
+    table td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    table th {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    table td button {
+      padding: 5px 10px;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    table td .edit-btn {
+      background-color: #ffc107;
+    }
+
+    table td .delete-btn {
+      background-color: #dc3545;
+    }
+  </style>
+  <body cz-shortcut-listen="true">
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li>
+            <a href="labs.html">Labs</a>
+            <ul class="submenu2">
+              <li><a href="lab1.html">Lab1</a></li>
+              <li><a href="lab2.html">Lab2</a></li>
+              <li><a href="lab3.html">Lab3</a></li>
+              <li><a href="lab4.html">Lab4</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Lab</a>
+            <ul class="submenu">
+              <li><a href="requirement.html">Requirement</a></li>
+              <li><a href="design.html">Design</a></li>
+              <li><a href="gym-management.html">Implement</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Gym Member Management</h1>
+
+      <div class="form-container">
+        <h2>Add New Member</h2>
+        <input type="text" id="memberName" placeholder="Member Name" />
+        <input type="text" id="memberEmail" placeholder="Email" />
+        <input type="number" id="memberAge" placeholder="Age" />
+        <button onclick="addMember()">Add Member</button>
+      </div>
+
+      <div class="form-container">
+        <h2>Search Member</h2>
+        <input
+          type="text"
+          id="searchMember"
+          placeholder="Search for a member"
+          oninput="searchMember()"
+        />
+      </div>
+
+      <h2>Member List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Member Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="memberList"></tbody>
+      </table>
+    </main>
+
+    <footer>
+      <p>22130233 - Vo Tan Sang</p>
+    </footer>
+    <script>
+      const memberList = [];
+
+      // Add Member Function
+      function addMember() {
+        const name = document.getElementById("memberName").value;
+        const email = document.getElementById("memberEmail").value;
+        const age = document.getElementById("memberAge").value;
+
+        // Validate that age is a positive number and greater than 0
+        if (name && email && age && !isNaN(age) && age > 0) {
+          const member = { id: Date.now(), name, email, age: Number(age) };
+          memberList.push(member);
+          renderMemberList();
+
+          // Clear input fields after successful addition
+          document.getElementById("memberName").value = "";
+          document.getElementById("memberEmail").value = "";
+          document.getElementById("memberAge").value = "";
+        } else {
+          // Provide appropriate error message if validation fails
+          alert(
+            "Please ensure all fields are filled in correctly. Age must be a positive number."
+          );
+        }
+      }
+
+      // Render Member List Function
+      function renderMemberList() {
+        const memberListTable = document.getElementById("memberList");
+        memberListTable.innerHTML = ""; // Clear table rows
+
+        memberList.forEach((member) => {
+          const row = document.createElement("tr");
+
+          row.innerHTML = `
+            <td>${member.name}</td>
+            <td>${member.email}</td>
+            <td>${member.age}</td>
+            <td><button class="edit-btn" onclick="editMember(${member.id})">Edit</button></td>
+            <td><button class="delete-btn" onclick="deleteMember(${member.id})">Delete</button></td>
+        `;
+          memberListTable.appendChild(row);
+        });
+      }
+
+      // Delete Member Function
+      function deleteMember(id) {
+        const memberIndex = memberList.findIndex((member) => member.id === id);
+        if (memberIndex !== -1) {
+          memberList.splice(memberIndex, 1);
+          renderMemberList();
+        }
+      }
+
+      // Search Member Function
+      function searchMember() {
+        const searchTerm = document
+          .getElementById("searchMember")
+          .value.toLowerCase();
+        const filteredMembers = memberList.filter((member) =>
+          member.name.toLowerCase().includes(searchTerm)
+        );
+
+        const memberListTable = document.getElementById("memberList");
+        memberListTable.innerHTML = ""; // Clear table rows
+
+        filteredMembers.forEach((member) => {
+          const row = document.createElement("tr");
+
+          row.innerHTML = `
+            <td>${member.name}</td>
+            <td>${member.email}</td>
+            <td>${member.age}</td>
+            <td><button class="edit-btn" onclick="editMember(${member.id})">Edit</button></td>
+            <td><button class="delete-btn" onclick="deleteMember(${member.id})">Delete</button></td>
+        `;
+          memberListTable.appendChild(row);
+        });
+      }
+
+      // Edit Member Function (Basic Placeholder)
+      function editMember(id) {
+        const member = memberList.find((member) => member.id === id);
+        if (member) {
+          document.getElementById("memberName").value = member.name;
+          document.getElementById("memberEmail").value = member.email;
+          document.getElementById("memberAge").value = member.age;
+          deleteMember(id); // Remove old record to replace on update
+        }
+      }
+    </script>
+  </body>
 </html>
