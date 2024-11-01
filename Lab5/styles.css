@@ -1,3 +1,4 @@
+/* General Reset and Fonts */
 * {
   margin: 0;
   padding: 0;
@@ -5,17 +6,21 @@
   font-family: Arial, sans-serif;
 }
 
+/* Container and Main Layout */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
+/* Header Styling */
 .header {
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
+  background-color: #6c63ff; /* Purple header */
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .header h1 {
@@ -24,35 +29,40 @@
 }
 
 .header p {
-  color: #666;
   font-size: 14px;
 }
 
 .header .info {
-  background-color: #eee;
+  background-color: #fff;
+  color: #6c63ff;
   padding: 2px 6px;
   border-radius: 50%;
-  margin: 0 5px;
+  font-weight: bold;
+  margin-left: 5px;
 }
 
+/* Navbar Styling */
 .navbar {
   display: flex;
   gap: 15px;
   padding: 10px 0;
-  border-bottom: 1px solid #ddd;
   margin-bottom: 20px;
+  background-color: #f3f3f3;
+  border-radius: 8px;
 }
 
 .navbar a {
   text-decoration: none;
   color: #333;
-  padding-bottom: 5px;
   font-weight: bold;
-  transition: color 0.3s;
+  transition: color 0.3s, background-color 0.3s;
+  padding: 8px 12px;
+  border-radius: 4px;
 }
 
 .navbar a:hover {
-  color: #a85cec;
+  color: white;
+  background-color: #6c63ff; /* Purple hover */
 }
 
 /* Section Headers */
@@ -60,16 +70,23 @@ h2 {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 15px;
+  color: #333;
 }
 
 /* Certifications Section */
 .certifications .import-btn {
-  background-color: #a85cec;
-  color: #fff;
+  background-color: #ff6b6b; /* Bright red button */
+  color: white;
   border: none;
   padding: 8px 12px;
   cursor: pointer;
+  border-radius: 4px;
   margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.certifications .import-btn:hover {
+  background-color: #e05a5a;
 }
 
 .cert-grid {
@@ -84,12 +101,17 @@ h2 {
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 8px;
+  background-color: #fdf4ff; /* Light purple background */
 }
 
 .cert-item img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
+}
+
+.cert-item p {
+  color: #333;
 }
 
 /* Archived Section */
@@ -101,20 +123,22 @@ h2 {
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 8px;
+  background-color: #e0f7fa; /* Light cyan background */
 }
 
 .archived-item img {
   width: 50px;
   height: 50px;
-}
-
-.archived-item .rating {
-  display: flex;
-  align-items: center;
+  border-radius: 50%;
 }
 
 .archived-item .rating span {
   color: gold;
+  margin-right: 5px;
+}
+
+.archived-item p {
+  color: #333;
 }
 
 /* Learning Tools Section */
@@ -129,6 +153,12 @@ h2 {
   width: 250px;
   border-radius: 8px;
   text-align: center;
+  background-color: #ffebf6; /* Light pink background */
+  transition: transform 0.3s;
+}
+
+.tool-item:hover {
+  transform: translateY(-5px);
 }
 
 .tool-item img {
@@ -140,6 +170,11 @@ h2 {
 .tool-item h3 {
   font-size: 18px;
   margin-bottom: 10px;
+  color: #6c63ff;
+}
+
+.tool-item p {
+  color: #666;
 }
 
 .tool-item .beta {
