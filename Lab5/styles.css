@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.header p {
+  color: #666;
+  font-size: 14px;
+}
+
+.header .info {
+  background-color: #eee;
+  padding: 2px 6px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.navbar {
+  display: flex;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  padding-bottom: 5px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #a85cec;
+}
+
+/* Section Headers */
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Certifications Section */
+.certifications .import-btn {
+  background-color: #a85cec;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cert-grid {
+  display: flex;
+  gap: 15px;
+  padding-top: 10px;
+}
+
+.cert-item {
+  width: 200px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.cert-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Archived Section */
+.archived-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.archived-item img {
+  width: 50px;
+  height: 50px;
+}
+
+.archived-item .rating {
+  display: flex;
+  align-items: center;
+}
+
+.archived-item .rating span {
+  color: gold;
+}
+
+/* Learning Tools Section */
+.tools-grid {
+  display: flex;
+  gap: 15px;
+}
+
+.tool-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 250px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.tool-item img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.tool-item h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tool-item .beta {
+  background-color: #ddd;
+  color: #333;
+  padding: 2px 4px;
+  font-size: 10px;
+  margin-left: 5px;
+  border-radius: 3px;
+}
